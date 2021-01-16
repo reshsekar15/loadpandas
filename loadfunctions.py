@@ -1,7 +1,10 @@
-
+from pandas import Series, DataFrame
+import pandas as pd
+import numpy as np
+import os
+import sys
 '''
 Author: Reshma Sekar
-Date: 01.16.2021
 Function name: clean_string 
 Function description: Function takes in a value, converts this to a string and removes any leading or trailing spaces
 '''
@@ -55,7 +58,7 @@ def find_header_limited(cols, data, row_limit):
         each_col = clean_string(each_col)
         if(each_col in cols):
             return 0
-    for each_row in range(0, len(data.index)*row_limit):
+    for each_row in range(0, int(len(data.index)*row_limit)):
         row = data.iloc[each_row]
         row = row.str.strip()
         row_is_header = True
